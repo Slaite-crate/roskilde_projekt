@@ -15,5 +15,4 @@ public class Foraelder extends Person{
         this.barn = barn;
     }
 
-
 }
