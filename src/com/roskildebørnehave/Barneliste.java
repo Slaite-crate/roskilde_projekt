@@ -11,12 +11,10 @@ public class Barneliste implements Liste{
         barneliste = new ArrayList<Barn>();
     }
 
-
-
-
     @Override
     public void tilføj(Object obj) {
-        //barneliste.add(new Barn);
+        Barn nytObj = (Barn) obj;
+        barneliste.add(nytObj);
     }
 
     @Override
