@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Medarbejderliste  implements Liste {
     private ArrayList<Ansat> medarbejderListe = new ArrayList <Ansat>();
-    }
+
 
     @Override
     public void tilføj(Object obj) {
