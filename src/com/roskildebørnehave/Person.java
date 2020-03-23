@@ -1,12 +1,12 @@
 package com.roskildebørnehave;
 
 public abstract class Person {
-    private String fornavn;
-    private String efternavn;
-    private int cprNr;
-    private String adresse;
-    private String telefonnummer; // hvis man skal kunne skrive '+45' eller lign.
-    private String email;
+    protected String fornavn;
+    protected String efternavn;
+    protected int cprNr;
+    protected String adresse;
+    protected String telefonnummer; // hvis man skal kunne skrive '+45' eller lign.
+    protected String email;
 
     public Person(String fornavn, String efternavn, int cprNr, String adresse, String telefonnummer, String email) {
         this.fornavn = fornavn;
