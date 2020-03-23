@@ -8,7 +8,7 @@ public interface Liste {
     //se hele listen
     public List seListen();
     //se enhed på listen (søg)
-    public Object seEnhed(String s);
+    public Object seEnhed(String s) throws Exception;
     //rediger enhed på liste
     public void rediger();
     //slet enhed fra liste

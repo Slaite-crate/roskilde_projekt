@@ -32,7 +32,7 @@ public class Barn extends Person{
         this.forælder = forælder;
     }
 
-    public int aldersOmregner(int cprNr){
+    private int aldersOmregner(int cprNr){
         String holdParameter = Integer.toString(cprNr);
         String nyDato = "20" + holdParameter.substring(4,6) + "-";
         nyDato += holdParameter.substring(2,4) + "-";
@@ -44,7 +44,7 @@ public class Barn extends Person{
         return p.getYears();
     }
 
-    public String dato(){
+    private String dato(){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date idag = new Date();
         return df.format(idag);
@@ -52,7 +52,7 @@ public class Barn extends Person{
 
     @Override
     public String toString(){
-        return "Navn: " + fornavn + " " + efternavn + " " + "CprNr: " + cprNr + " " + "Adresse: " + adresse + " " + "Tlf: " + telefonnummer + " " + "Email: " + email + " " + "Forældre: " + forælder;
+        return "Navn: " + getFornavn() + " " + getEfternavn() + " " + "CprNr: " + getCprNr() + " " + "Adresse: " + getAdresse() + " " + "Tlf: " + getTelefonnummer() + " " + "Email: " + getEmail() + " " + "Forældre: " + forælder;
     }
 
 }

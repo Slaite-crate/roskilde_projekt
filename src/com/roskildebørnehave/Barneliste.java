@@ -23,8 +23,13 @@ public class Barneliste implements Liste{
     }
 
     @Override
-    public Object seEnhed(String s) {
-        ;
+    public Object seEnhed(String s) throws Exception {
+        for(Barn a : barneliste){
+            if (a.toString() != null && a.toString().equals(s)){
+                return a;
+            }
+        }
+        throw new Exception("intet object ved det navn");
     }
 
     @Override
