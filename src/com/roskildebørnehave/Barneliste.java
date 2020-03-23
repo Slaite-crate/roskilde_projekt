@@ -19,12 +19,12 @@ public class Barneliste implements Liste{
 
     @Override
     public List seListen() {
-        return null;
+        return barneliste;
     }
 
     @Override
     public Object seEnhed(String s) {
-        return null;
+        ;
     }
 
     @Override

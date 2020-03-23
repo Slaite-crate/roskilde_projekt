@@ -49,4 +49,10 @@ public class Barn extends Person{
         Date idag = new Date();
         return df.format(idag);
     }
+
+    @Override
+    public String toString(){
+        return "Navn: " + fornavn + " " + efternavn + " " + "CprNr: " + cprNr + " " + "Adresse: " + adresse + " " + "Tlf: " + telefonnummer + " " + "Email: " + email + " " + "Forældre: " + forælder;
+    }
+
 }
