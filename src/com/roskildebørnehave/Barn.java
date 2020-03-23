@@ -9,7 +9,7 @@ import java.util.Date;
 public class Barn extends Person{
 
     private int alder;
-    private Foraelder foraelder;
+    private Forælder forælder;
 
     public Barn(String fornavn, String efternavn, int cprNr, String adresse, String telefonnummer, String email) {
         super(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
@@ -24,12 +24,12 @@ public class Barn extends Person{
         this.alder = alder;
     }
 
-    public Foraelder getForaelder() {
-        return foraelder;
+    public Forælder getForælder() {
+        return forælder;
     }
 
-    public void setForaelder(Foraelder foraelder) {
-        this.foraelder = foraelder;
+    public void setForælder(Forælder forælder) {
+        this.forælder = forælder;
     }
 
     public int aldersOmregner(int cprNr){
