@@ -1,0 +1,1 @@
+String fornavn, String efternavn, int cprNr, String adresse, String telefonnummer, String email, Barn cpr
