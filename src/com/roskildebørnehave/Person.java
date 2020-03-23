@@ -17,11 +17,9 @@ public abstract class Person {
         this.email = email;
     }
 
-    public void tilføj(){}
-
     @Override
     public String toString() {
-        return fornavn + " " + efternavn + " ";
+        return fornavn + " " + efternavn;
     }
 
 }
