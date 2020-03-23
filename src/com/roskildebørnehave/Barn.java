@@ -34,6 +34,7 @@ public class Barn extends Person{
         String nyDato = "20"+holdParameter.substring(4,6)+"-";
         nyDato += holdParameter.substring(2,4);
         String idag = dato();
+        return 0;
     }
     public String dato(){
         DateFormat df = new SimpleDateFormat("ddMMyy");
