@@ -7,5 +7,11 @@ public class Ansat extends Person {
         super(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
     }
 
+    @Override
+    public String toString(){
+        return "Navn: " + getFornavn() + " " + getEfternavn() + " " + "CprNr: " + getCprNr() + " " + "Adresse: " + getAdresse() + " " + "Tlf: " + getTelefonnummer() + " " + "Email: " + getEmail();
+    }
+
+
 
 }
