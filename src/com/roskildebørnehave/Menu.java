@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Menu {
     Scanner sc;
-    Barneliste barneliste;
+    BørneListe børneliste;
 
     public Menu(){
-        barneliste = new Barneliste();
+        børneliste = new BørneListe();
         sc = new Scanner(System.in);
     }
 
@@ -32,14 +32,25 @@ public class Menu {
         System.out.println("3: søg listen");
         System.out.println("4: rediger listen");
         System.out.println("5: slet fra listen");
-        int input = sc.nextInt();
-        if (input == 1){
-            Person person = tilføjOplysninger();
-            barneliste.tilføj(person);
+        int valg = sc.nextInt();
+        if (valg == 1){
+            Person person = tilføjOplysninger(1);
+            børneliste.tilføj(person);
+        }
+        if (valg == 2){
+            børneliste.seListen();
+        }
+        if (valg == 3){
+            System.out.println("intast navn: ");
+            String navn = sc.next();
+            børneliste.søg(navn);
+        }
+        if (valg == 4){
+
         }
     }
 
-    private Person tilføjOplysninger(){
+    private Person tilføjOplysninger(int tal){
         String fornavn;
         String efternavn;
         int cprNr;
@@ -60,7 +71,15 @@ public class Menu {
         System.out.println("tilføj email");
         email = sc.next();
 
-        return new Barn(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+        if (tal == 1) {
+            return new Barn(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+        }
+        if (tal == 2) {
+            return new Kontaktperson(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+        }
+        else {
+            return new Ansat(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+        }
     }
 
     private void hovedMenu(){
