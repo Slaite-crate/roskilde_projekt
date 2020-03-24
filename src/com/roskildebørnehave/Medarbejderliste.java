@@ -27,21 +27,34 @@ public class Medarbejderliste  implements Liste {
 
     @Override
     public void rediger() {
+        Scanner input = new Scanner(System.in);
         int index;
-        index = 1;
+        index = input.nextInt();
 
-        Scanner ind = new Scanner(System.in);
-        System.out.println("1 for Fornavn, 2 for Efternavn, 3 for cprNr, 4 for Adresse, 5 for Telefonnummer, 6 for Email");
-        if(ind.nextInt() == 1){
-            System.out.println("Skriv nyt fornavn");
-            medarbejderliste.set(1,ind.nextString())
+        String fornavn;
+        String efternavn;
+        int cprNr;
+        String adresse;
+        String telefonnummer;
+        String email;
+
+        fornavn = medarbejderListe.get(index).getFornavn();
+
+        int valg = input.nextInt();
+        if (valg == 1){
+            fornavn = input.next();
         }
+        efternavn = input.next();
+        cprNr = input.nextInt();
+        adresse = "københavn";
+        telefonnummer = "123498765";
+        email = "noget@mail.com";
 
-
-        System.out.println("Indtast ny information");
-        nyAnsat = ind.next
         Ansat nyAnsat;
+        nyAnsat = new Ansat(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+
         medarbejderListe.set(index, nyAnsat);
+
         System.out.println("Gemt");
 
     }
