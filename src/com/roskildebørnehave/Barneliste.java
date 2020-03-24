@@ -29,7 +29,7 @@ public class Barneliste implements Liste{
                 return a;
             }
         }
-        throw new Exception("intet object ved det navn");
+        throw new Exception("Intet barn ved det navn");
     }
 
     @Override
