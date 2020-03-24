@@ -59,31 +59,13 @@ public class Venteliste implements Liste{
 
     @Override
     public void slet(int index) {
-
+        for(Barn b : venteliste){
+            if(index == b.getCprNr()) {
+                venteliste.remove(b);
+            }
+            else {
+                System.out.println("Barnet med dette cprnr:" + index + "findes ikke på listen");
+            }
+        }
     }
-
-
-    /* Date tilføjelsesTidspunkt;
-    Barn barn;
-
-    public Venteliste(Date tilføjelsesTidspunkt, Barn barn) {
-        this.tilføjelsesTidspunkt = tilføjelsesTidspunkt;
-        this.barn = barn;
-    }
-
-    public Date getTilfoejelsesTidspunkt() {
-        return tilføjelsesTidspunkt;
-    }
-
-    public void setTilfoejelsesTidspunkt(Date tilfoejelsesTidspunkt) {
-        this.tilføjelsesTidspunkt = tilfoejelsesTidspunkt;
-    }
-
-    public Barn getBarn() {
-        return barn;
-    }
-
-    public void setBarn(Barn barn) {
-        this.barn = barn;
-    }*/
 }
