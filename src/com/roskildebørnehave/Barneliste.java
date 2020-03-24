@@ -1,44 +1,40 @@
 package com.roskildebørnehave;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Barneliste implements Liste{
 
-    private ArrayList<Barn> barneliste;
+    private Map<Integer, Barn> barneliste;
 
     public Barneliste(){
-        barneliste = new ArrayList<Barn>();
+        barneliste = new HashMap<Integer, Barn>();
     }
 
     @Override
     public void tilføj(Object obj) {
         Barn nytObj = (Barn) obj;
-        barneliste.add(nytObj);
+        barneliste.put(nytObj.getCprNr(),nytObj);
     }
 
     @Override
-    public List seListen() {
-        return barneliste;
+    public List seListen() throws Exception{
+        return null;
     }
 
     @Override
-    public Object seEnhed(String s) throws Exception {
-        for(Barn a : barneliste){
-            if (a.toString() != null && a.toString().equals(s)){
-                return a;
-            }
-        }
-        throw new Exception("intet object ved det navn");
+    public Person seEnhed(int index) throws Exception {
+        return null;
     }
 
     @Override
-    public void rediger() {
+    public void rediger(int index) {
 
     }
 
     @Override
-    public void slet() {
+    public void slet(int index) {
 
     }
 }

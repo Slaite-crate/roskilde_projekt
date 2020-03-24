@@ -9,7 +9,9 @@ import java.util.Date;
 public class Barn extends Person{
 
     private int alder;
-    private Forælder forælder;
+    private Kontaktperson kontaktperson1;
+    private Kontaktperson kontaktperson2;
+
 
     public Barn(String fornavn, String efternavn, int cprNr, String adresse, String telefonnummer, String email) {
         super(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
@@ -24,12 +26,20 @@ public class Barn extends Person{
         this.alder = alder;
     }
 
-    public Forælder getForælder() {
-        return forælder;
+    public Kontaktperson getKontaktperson1() {
+        return kontaktperson1;
     }
 
-    public void setForælder(Forælder forælder) {
-        this.forælder = forælder;
+    public void setKontaktperson1(Kontaktperson kontaktperson) {
+        this.kontaktperson1 = kontaktperson;
+    }
+
+    public Kontaktperson getKontaktperson2() {
+        return kontaktperson2;
+    }
+
+    public void setKontaktperson2(Kontaktperson kontaktperson) {
+        this.kontaktperson2 = kontaktperson;
     }
 
     private int aldersOmregner(int cprNr){
@@ -52,7 +62,7 @@ public class Barn extends Person{
 
     @Override
     public String toString(){
-        return "Navn: " + getFornavn() + " " + getEfternavn() + " " + "CprNr: " + getCprNr() + " " + "Adresse: " + getAdresse() + " " + "Tlf: " + getTelefonnummer() + " " + "Email: " + getEmail() + " " + "Forældre: " + forælder;
+        return "Navn: " + getFornavn() + " " + getEfternavn() + " " + "CprNr: " + getCprNr() + " " + "Adresse: " + getAdresse() + " " + "Tlf: " + getTelefonnummer() + " " + "Email: " + getEmail() + " " + "Kontaktperson: " + kontaktperson1 + " " + "Kontaktperson: " + kontaktperson2;
     }
 
 }
