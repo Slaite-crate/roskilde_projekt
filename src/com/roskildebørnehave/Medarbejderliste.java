@@ -18,24 +18,27 @@ public class Medarbejderliste  implements Liste {
     }
 
     @Override
-    public Object seEnhed(String s) throws Exception {
-        for(Ansat a : medarbejderListe){
+    public Object seEnhed(int index) throws Exception {
+        /*for(Ansat a : medarbejderListe){
             if (a.toString() != null && a.toString().equals(s)){
                 return a;
             }
-        }
+        }*/
         throw new Exception("Navnet eksisterer ikke");
     }
 
     @Override
-    public void rediger() {
+    public void rediger(int index) {
 
     }
 
     @Override
-    public void slet() {
-
-        }
+    public void slet(int index) {
 
     }
+
+
+}
+
+
 
