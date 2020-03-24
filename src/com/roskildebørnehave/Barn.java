@@ -11,11 +11,25 @@ public class Barn extends Person{
     private int alder;
     private Kontaktperson kontaktperson1;
     private Kontaktperson kontaktperson2;
+    private LocalDate tilføjelsesTidspunkt;
 
 
     public Barn(String fornavn, String efternavn, int cprNr, String adresse, String telefonnummer, String email) {
         super(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
         this.alder = aldersOmregner(cprNr);
+    }
+    public Barn(Date tilføjelsesTidspunkt, String fornavn, String efternavn, int cprNr, String adresse, String telefonnummer, String email) {
+        super(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+        this.alder = aldersOmregner(cprNr);
+        this.tilføjelsesTidspunkt = null;
+    }
+
+    public LocalDate getTilføjelsesTidspunkt() {
+        return tilføjelsesTidspunkt;
+    }
+
+    public void setTilføjelsesTidspunkt(LocalDate tilføjelsesTidspunkt) {
+        this.tilføjelsesTidspunkt = tilføjelsesTidspunkt;
     }
 
     public int getAlder() {
