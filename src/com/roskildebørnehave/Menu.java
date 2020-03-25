@@ -93,7 +93,15 @@ public class Menu {
             System.out.println("vil du tilføje et nytbarn?");
         }
         if (tal == 2) {
-            //tilføj kontaktperson
+            try {
+                System.out.println("skriv cpr nummer på det barn du vil tilføje en kontaktperson til");
+                int cpr = sc.nextInt();
+                Barn barn = børneliste.findBarnForCprNr(cpr);
+                Kontaktperson kontaktperson = new Kontaktperson(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+                børneliste.tilføjKontaktperson(barn, kontaktperson);
+            } catch (Exception e){
+
+            }
         }
         if (tal == 3) {
             Ansat ansat = new Ansat(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
@@ -107,7 +115,7 @@ public class Menu {
             børneliste.seListen();
         }
         if (valg == 2){
-            //se kontaktperson liste
+            børneliste.seKontaktpersonsListe();
         }
         if (valg == 3){
             medarbejderListe.seListen();

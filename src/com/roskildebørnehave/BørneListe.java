@@ -54,5 +54,24 @@ public class BørneListe implements Liste{
         return børneliste.indexOf(barn);
     }
 
+    public void tilføjKontaktperson(Barn barn, Kontaktperson kontaktperson){
+        if (barn.getKontaktperson1() == null){
+            barn.setKontaktperson1(kontaktperson);
+        } else if (barn.getKontaktperson2() == null){
+            barn.setKontaktperson2(kontaktperson);
+        } else {
+            System.out.println("barnet har to kontaktpersoner");
+        }
+    }
 
+    public void seKontaktpersonsListe(){
+        for (Barn a : børneliste){
+            if (a.getKontaktperson1() != null){
+                System.out.println(a.getKontaktperson1().toString());
+            }
+            if (a.getKontaktperson2() != null){
+                System.out.println(a.getKontaktperson2().toString());
+            }
+        }
+    }
 }

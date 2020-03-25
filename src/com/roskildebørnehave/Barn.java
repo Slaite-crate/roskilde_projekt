@@ -62,7 +62,7 @@ public class Barn extends Person{
 
     @Override
     public String toString(){
-        return "/n" + "Navn: " + getFornavn() + " " + getEfternavn() + " " + "CprNr: " + getCprNr() + " " + "Adresse: " + getAdresse() + " " + "Tlf: " + getTelefonnummer() + " " + "Email: " + getEmail() + " " + "Kontaktperson: " + kontaktperson1 + " " + "Kontaktperson: " + kontaktperson2;
+        return "/n" + "Navn: " + getFornavn() + " " + getEfternavn() + " " + "CprNr: " + getCprNr() + " " + "Adresse: " + getAdresse() + " " + "Tlf: " + getTelefonnummer() + " " + "Email: " + getEmail();
     }
 
 }
