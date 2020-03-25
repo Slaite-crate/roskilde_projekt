@@ -38,6 +38,21 @@ public class BørneListe implements Liste{
 
     @Override
     public void slet(int index) {
-
+        børneliste.remove(index);
     }
+
+    public Barn findBarnForCprNr(int cpr) throws Exception {
+        for (Barn a : børneliste){
+            if (a.getCprNr() == cpr){
+                return a;
+            }
+        }
+        throw new Exception("ingen match på cpr nummer");
+    }
+
+    public int fåIndex(Barn barn){
+        return børneliste.indexOf(barn);
+    }
+
+
 }
