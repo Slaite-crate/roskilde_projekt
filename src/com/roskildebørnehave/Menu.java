@@ -3,70 +3,49 @@ package com.roskildebørnehave;
 import java.util.Scanner;
 
 public class Menu {
+    ListeManager listeManager;
     Scanner sc;
-    Barneliste barneliste;
 
     public Menu(){
-        barneliste = new Barneliste();
+        listeManager = new ListeManager();
         sc = new Scanner(System.in);
     }
 
     public void start(){
         boolean kør = true;
-        while (kør){
-            hovedMenu();
-            Scanner sc = new Scanner(System.in);
-            int input = sc.nextInt();
-            if (input == 1){
-                børneMenu();
-            }
-            if (input == 4){
-                kør = false;
+        while (kør) {
+            barnMenu();
+            int valg = sc.nextInt();
+            if (valg == 1){
+                opretBarn();
+                listeManager.gemBarnListe();
             }
         }
     }
 
-    private void børneMenu(){
-        System.out.println("1: tilføj barn");
-        System.out.println("2: se liste over børn");
-        System.out.println("3: søg listen");
-        System.out.println("4: rediger listen");
-        System.out.println("5: slet fra listen");
-        int input = sc.nextInt();
-        if (input == 1){
-            Person person = tilføjOplysninger();
-            barneliste.tilføj(person);
+    public void opretBarn(){
+        System.out.println("skriv navn: ");
+        String navn = sc.next();
+        navn += sc.nextLine();
+        System.out.println(navn);
+        System.out.println("skriv cpr nummer: ");
+        String cpr = sc.next();
+        System.out.println("tilføj til venteliste\n1: ja\n2: nej");
+        int valg = sc.nextInt();
+        boolean venteliste;
+        if (valg == 1){
+            venteliste = true;
+        } else {
+            venteliste = false;
         }
+        listeManager.opretBarn(navn, cpr, venteliste);
     }
 
-    private Person tilføjOplysninger(){
-        String fornavn;
-        String efternavn;
-        int cprNr;
-        String adresse;
-        String telefonnummer;
-        String email;
-
-        System.out.println("tilføj fornavn");
-        fornavn = sc.next();
-        System.out.println("tilføj efternavn");
-        efternavn = sc.next();
-        System.out.println("tilføj cprNr");
-        cprNr = sc.nextInt();
-        System.out.println("tilføj adresse");
-        adresse = sc.next();
-        System.out.println("tilføj telefonnummer");
-        telefonnummer = sc.next();
-        System.out.println("tilføj email");
-        email = sc.next();
-
-        return new Barn(fornavn, efternavn, cprNr, adresse, telefonnummer, email);
+    public void barnMenu(){
+        System.out.println("1: opret barn");
+        System.out.println("2: se barn liste");
+        System.out.println("3: søg barn");
+        System.out.println("4: rediger barn");
     }
 
-    private void hovedMenu(){
-        System.out.println("1: børn");
-        System.out.println("2: kontaktperson");
-        System.out.println("3: medarbejder");
-        System.out.println("4: afslut program");
-    }
 }
