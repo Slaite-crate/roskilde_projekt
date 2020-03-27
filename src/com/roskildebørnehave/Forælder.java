@@ -35,4 +35,8 @@ public class Forælder {
     public void setNavn(String navn) {
         this.navn = navn;
     }
+
+    public String gemTilFil(){
+        return ID + " % " + navn + " % " + cprNummer + " % " + adresse + " % " + telefonnummer;
+    }
 }

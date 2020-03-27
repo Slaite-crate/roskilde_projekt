@@ -13,4 +13,7 @@ public class Forbindelse {
         this.forælderID = forælder.getID();
     }
 
+    public String gemTilFil(){
+        return barnID + " % " + forælderID;
+    }
 }

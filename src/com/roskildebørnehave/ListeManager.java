@@ -65,7 +65,6 @@ public class ListeManager {
             }
             skrivBarnListe.write(gemTilFil);
             skrivBarnListe.close();
-            System.out.println("børneliste gemt");
         } catch (IOException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -87,18 +86,49 @@ public class ListeManager {
         }
         //gemmer tekst documentet
         try {
-            FileWriter skrivBarnListe = new FileWriter("ForælderListe.txt");
+            FileWriter skrivForælderListe = new FileWriter("ForælderListe.txt");
             String gemTilFil = "";
-            for (int i = 0; i < barnListe.size(); i++){
+            for (int i = 0; i < forælderListe.size(); i++){
                 if (i == 0){
-                    gemTilFil += barnListe.get(i).gemTilFil();
+                    gemTilFil += forælderListe.get(i).gemTilFil();
                 } else {
-                    gemTilFil += "\n" + barnListe.get(i).gemTilFil();
+                    gemTilFil += "\n" + forælderListe.get(i).gemTilFil();
                 }
             }
-            skrivBarnListe.write(gemTilFil);
-            skrivBarnListe.close();
-            System.out.println("børneliste gemt");
+            skrivForælderListe.write(gemTilFil);
+            skrivForælderListe.close();
+        } catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public void gemForbindelseListe(){
+        //opretter tekst documentet
+        try {
+            File myObj = new File("ForbindelseListe.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        //gemmer tekst documentet
+        try {
+            FileWriter skrivForbindelseListe = new FileWriter("ForælderListe.txt");
+            String gemTilFil = "";
+            for (int i = 0; i < forbindelseListe.size(); i++){
+                if (i == 0){
+                    gemTilFil += forbindelseListe.get(i).gemTilFil();
+                } else {
+                    gemTilFil += "\n" + forbindelseListe.get(i).gemTilFil();
+                }
+            }
+            skrivForbindelseListe.write(gemTilFil);
+            skrivForbindelseListe.close();
         } catch (IOException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -166,15 +196,18 @@ public class ListeManager {
             Forælder forælder = null;
             while (reader.hasNextLine()) {
                 barnID = reader.nextInt();
+                String check = reader.next();
                 forælderID = reader.nextInt();
                 for (Barn a : barnListe){
                     if (a.getID() == barnID){
                         barn = a;
+                        break;
                     }
                 }
                 for (Forælder a : forælderListe){
                     if (a.getID() == forælderID){
                         forælder = a;
+                        break;
                     }
                 }
                 if (barn != null && forælder != null) {
