@@ -3,6 +3,17 @@ package com.roskildebørnehave;
 public class Forælder {
     int ID;
     String navn;
+    String cprNummer;
+    String adresse;
+    int telefonnummer;
+
+    public Forælder(int ID, String navn, String cprNummer, String adresse, int telefonnummer) {
+        this.ID = ID;
+        this.navn = navn;
+        this.cprNummer = cprNummer;
+        this.adresse = adresse;
+        this.telefonnummer = telefonnummer;
+    }
 
     public Forælder(int ID, String navn){
         this.ID = ID;

@@ -72,6 +72,6 @@ public class Barn {
     }
 
     public String gemTilFil(){
-        return ID + " " + navn + " " + cprNummer + " " + alder + " " + venteliste + " " + tilføjelsesDato;
+        return ID + " % " + navn + " % " + cprNummer + " % " + alder + " % " + venteliste + " % " + tilføjelsesDato;
     }
 }

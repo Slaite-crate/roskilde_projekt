@@ -67,32 +67,67 @@ public class ListeManager {
             skrivBarnListe.close();
             System.out.println("børneliste gemt");
         } catch (IOException e){
-
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 
-
+    public void gemForælderListe(){
+        //opretter tekst documentet
+        try {
+            File myObj = new File("ForælderListe.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        //gemmer tekst documentet
+        try {
+            FileWriter skrivBarnListe = new FileWriter("ForælderListe.txt");
+            String gemTilFil = "";
+            for (int i = 0; i < barnListe.size(); i++){
+                if (i == 0){
+                    gemTilFil += barnListe.get(i).gemTilFil();
+                } else {
+                    gemTilFil += "\n" + barnListe.get(i).gemTilFil();
+                }
+            }
+            skrivBarnListe.write(gemTilFil);
+            skrivBarnListe.close();
+            System.out.println("børneliste gemt");
+        } catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
 
     public void læsBarnListeFil(){
         try {
             File barnFil = new File("BarnListe.txt");
             Scanner reader = new Scanner(barnFil);
-            int ID;
-            String navn;
-            String cprNummer;
-            int alder;
+            String check;
             boolean venteliste;
             String tilføjelsesDato;
             while (reader.hasNextLine()) {
-                navn = "";
+                int ID = 0;
                 ID = reader.nextInt();
-                while (reader.hasNext() && !reader.hasNextInt()) {
+                check = reader.next();
+                String navn = "";
+                while (!reader.hasNext("%")) {
                     navn += reader.next() + " ";
                 }
                 navn = navn.substring(0, navn.length() - 1);
-                cprNummer = reader.next();
-                alder = reader.nextInt();
+                check = reader.next();
+                String cprNummer = reader.next();
+                check = reader.next();
+                int alder = reader.nextInt();
+                check = reader.next();
                 venteliste = reader.nextBoolean();
+                check = reader.next();
                 tilføjelsesDato = reader.next();
                 barnListe.add(new Barn(ID, navn, cprNummer, alder, venteliste, tilføjelsesDato));
             }
