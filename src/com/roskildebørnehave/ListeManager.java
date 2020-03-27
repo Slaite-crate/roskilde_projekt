@@ -23,8 +23,19 @@ public class ListeManager {
     }
 
     public void opretBarn(String navn, String cpr, boolean venteliste){
-        int ID = barnListe.size() + 1;
-        barnListe.add(new Barn(ID, navn, cpr, venteliste));
+        barnListe.add(new Barn(navn, cpr, venteliste));
+    }
+
+    public void seBarnListe(){
+        System.out.println(barnListe.toString());
+    }
+
+    public void søgBarn(String navn){
+        for (Barn a : barnListe) {
+            if (a.getNavn().toLowerCase().contains(navn.toLowerCase())) {
+                System.out.println(a.toString());
+            }
+        }
     }
 
     public void tilføjBarn(Barn barn){
@@ -140,12 +151,7 @@ public class ListeManager {
             File barnFil = new File("BarnListe.txt");
             Scanner reader = new Scanner(barnFil);
             String check;
-            boolean venteliste;
-            String tilføjelsesDato;
             while (reader.hasNextLine()) {
-                int ID = 0;
-                ID = reader.nextInt();
-                check = reader.next();
                 String navn = "";
                 while (!reader.hasNext("%")) {
                     navn += reader.next() + " ";
@@ -156,10 +162,10 @@ public class ListeManager {
                 check = reader.next();
                 int alder = reader.nextInt();
                 check = reader.next();
-                venteliste = reader.nextBoolean();
+                boolean venteliste = reader.nextBoolean();
                 check = reader.next();
-                tilføjelsesDato = reader.next();
-                barnListe.add(new Barn(ID, navn, cprNummer, alder, venteliste, tilføjelsesDato));
+                String tilføjelsesDato = reader.next();
+                barnListe.add(new Barn(navn, cprNummer, alder, venteliste, tilføjelsesDato));
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -172,12 +178,24 @@ public class ListeManager {
         try {
             File forælderFil = new File("ForælderListe.txt");
             Scanner reader = new Scanner(forælderFil);
-            int ID;
-            String navn;
+            String check;
             while (reader.hasNextLine()){
-                ID = reader.nextInt();
-                navn = reader.next();
-                forælderListe.add(new Forælder(ID, navn));
+                String navn = "";
+                while (!reader.hasNext("%")) {
+                    navn += reader.next() + " ";
+                }
+                navn = navn.substring(0, navn.length() - 1);
+                check = reader.next();
+                String cprNummer = reader.next();
+                check = reader.next();
+                String adresse = "";
+                while (!reader.hasNext("%")) {
+                    adresse += reader.next() + " ";
+                }
+                adresse = adresse.substring(0, adresse.length() - 1);
+                check = reader.next();
+                int telfonnummer = reader.nextInt();
+                forælderListe.add(new Forælder(navn, cprNummer, adresse, telfonnummer));
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -190,22 +208,21 @@ public class ListeManager {
         try {
             File FB = new File("ForbindelseListe.txt");
             Scanner reader = new Scanner(FB);
-            int barnID;
-            int forælderID;
-            Barn barn = null;
-            Forælder forælder = null;
+            String check;
             while (reader.hasNextLine()) {
-                barnID = reader.nextInt();
-                String check = reader.next();
-                forælderID = reader.nextInt();
+                Barn barn = null;
+                Forælder forælder = null;
+                String barnID = reader.next();
+                check = reader.next();
+                String forælderID = reader.next();
                 for (Barn a : barnListe){
-                    if (a.getID() == barnID){
+                    if (a.getCprNummer() == barnID){
                         barn = a;
                         break;
                     }
                 }
                 for (Forælder a : forælderListe){
-                    if (a.getID() == forælderID){
+                    if (a.getCprNummer() == forælderID){
                         forælder = a;
                         break;
                     }

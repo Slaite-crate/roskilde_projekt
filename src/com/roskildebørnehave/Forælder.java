@@ -1,31 +1,16 @@
 package com.roskildebørnehave;
 
 public class Forælder {
-    int ID;
     String navn;
     String cprNummer;
     String adresse;
     int telefonnummer;
 
-    public Forælder(int ID, String navn, String cprNummer, String adresse, int telefonnummer) {
-        this.ID = ID;
+    public Forælder(String navn, String cprNummer, String adresse, int telefonnummer) {
         this.navn = navn;
         this.cprNummer = cprNummer;
         this.adresse = adresse;
         this.telefonnummer = telefonnummer;
-    }
-
-    public Forælder(int ID, String navn){
-        this.ID = ID;
-        this.navn = navn;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getNavn() {
@@ -36,7 +21,31 @@ public class Forælder {
         this.navn = navn;
     }
 
+    public String getCprNummer() {
+        return cprNummer;
+    }
+
+    public void setCprNummer(String cprNummer) {
+        this.cprNummer = cprNummer;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public int getTelefonnummer() {
+        return telefonnummer;
+    }
+
+    public void setTelefonnummer(int telefonnummer) {
+        this.telefonnummer = telefonnummer;
+    }
+
     public String gemTilFil(){
-        return ID + " % " + navn + " % " + cprNummer + " % " + adresse + " % " + telefonnummer;
+        return navn + " % " + cprNummer + " % " + adresse + " % " + telefonnummer;
     }
 }

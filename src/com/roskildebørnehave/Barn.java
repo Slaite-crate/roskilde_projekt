@@ -7,15 +7,13 @@ import java.time.Period;
 import java.util.Date;
 
 public class Barn {
-    private int ID;
     private String navn;
     private String cprNummer;
     private int alder;
     private boolean venteliste;
     private String tilføjelsesDato;
 
-    public Barn(int ID, String navn, String cprNummer, int alder, boolean venteliste, String tilføjelsesDato) {
-        this.ID = ID;
+    public Barn(String navn, String cprNummer, int alder, boolean venteliste, String tilføjelsesDato) {
         this.navn = navn;
         this.cprNummer = cprNummer;
         this.alder = alder;
@@ -23,17 +21,12 @@ public class Barn {
         this.tilføjelsesDato = tilføjelsesDato;
     }
 
-    public Barn(int ID, String navn, String cprNummer, boolean venteliste) {
-        this.ID = ID;
+    public Barn(String navn, String cprNummer, boolean venteliste) {
         this.navn = navn;
         this.cprNummer = cprNummer;
         this.venteliste = venteliste;
         this.alder = aldersOmregner(cprNummer);
         this.tilføjelsesDato = dato();
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getNavn() {
@@ -44,10 +37,37 @@ public class Barn {
         this.navn = navn;
     }
 
-    public int getID(){
-        return ID;
+    public String getCprNummer() {
+        return cprNummer;
     }
 
+    public void setCprNummer(String cprNummer) {
+        this.cprNummer = cprNummer;
+    }
+
+    public int getAlder() {
+        return alder;
+    }
+
+    public void setAlder(int alder) {
+        this.alder = alder;
+    }
+
+    public boolean isVenteliste() {
+        return venteliste;
+    }
+
+    public void setVenteliste(boolean venteliste) {
+        this.venteliste = venteliste;
+    }
+
+    public String getTilføjelsesDato() {
+        return tilføjelsesDato;
+    }
+
+    public void setTilføjelsesDato(String tilføjelsesDato) {
+        this.tilføjelsesDato = tilføjelsesDato;
+    }
 
     private int aldersOmregner(String cprNr){
         String nyDato = "20" + cprNr.substring(4,6) + "-";
@@ -68,10 +88,10 @@ public class Barn {
 
     @Override
     public String toString(){
-        return "\nnavn: " + navn;
+        return "\nnavn: " + navn + " alder: " + alder;
     }
 
     public String gemTilFil(){
-        return ID + " % " + navn + " % " + cprNummer + " % " + alder + " % " + venteliste + " % " + tilføjelsesDato;
+        return navn + " % " + cprNummer + " % " + alder + " % " + venteliste + " % " + tilføjelsesDato;
     }
 }

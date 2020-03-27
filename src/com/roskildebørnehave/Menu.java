@@ -20,6 +20,9 @@ public class Menu {
                 opretBarn();
                 listeManager.gemBarnListe();
             }
+            if (valg == 2){
+                listeManager.seBarnListe();
+            }
         }
     }
 
