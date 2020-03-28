@@ -27,13 +27,15 @@ public class ListeManager {
     }
 
     public void seBarnListe(){
-        System.out.println(barnListe.toString());
+        for (Barn a : barnListe){
+            System.out.println(a.toString() + "\n");
+        }
     }
 
     public void søgBarn(String navn){
         for (Barn a : barnListe) {
             if (a.getNavn().toLowerCase().contains(navn.toLowerCase())) {
-                System.out.println(a.toString());
+                System.out.println(a.toString() + "\n");
             }
         }
     }

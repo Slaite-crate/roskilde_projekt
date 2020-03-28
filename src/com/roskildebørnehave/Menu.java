@@ -18,10 +18,12 @@ public class Menu {
             int valg = sc.nextInt();
             if (valg == 1){
                 opretBarn();
-                listeManager.gemBarnListe();
             }
             if (valg == 2){
                 listeManager.seBarnListe();
+            }
+            if (valg == 3){
+                søgBarn();
             }
         }
     }
@@ -30,7 +32,6 @@ public class Menu {
         System.out.println("skriv navn: ");
         String navn = sc.next();
         navn += sc.nextLine();
-        System.out.println(navn);
         System.out.println("skriv cpr nummer: ");
         String cpr = sc.next();
         System.out.println("tilføj til venteliste\n1: ja\n2: nej");
@@ -42,6 +43,15 @@ public class Menu {
             venteliste = false;
         }
         listeManager.opretBarn(navn, cpr, venteliste);
+        //gem barn
+        listeManager.gemBarnListe();
+    }
+
+    public void søgBarn(){
+        System.out.println("skriv navn: ");
+        String navn = sc.next();
+        navn += sc.nextLine();
+        listeManager.søgBarn(navn);
     }
 
     public void barnMenu(){

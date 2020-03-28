@@ -88,7 +88,7 @@ public class Barn {
 
     @Override
     public String toString(){
-        return "\nnavn: " + navn + " alder: " + alder;
+        return "navn:   " + navn + " " + "\nalder:  " + alder + "\ncpr nummer:  " + cprNummer;
     }
 
     public String gemTilFil(){
