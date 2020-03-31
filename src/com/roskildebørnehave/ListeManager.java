@@ -44,8 +44,17 @@ public class ListeManager {
         barnListe.add(barn);
     }
 
-    public void tilføjForælder(Forælder forælder){
+    public void tilføjForælder(String navn, String cpr, String adresse, int telefon, String barncpr){
+        Barn barn = null;
+        for (Barn a : barnListe){
+            if (a.getCprNummer().equals(barncpr)){
+                barn = a;
+                break;
+            }
+        }
+        Forælder forælder = new Forælder(navn, cpr, adresse, telefon);
         forælderListe.add(forælder);
+        tilføjForbindelse(barn, forælder);
     }
 
     public void tilføjForbindelse(Barn barn, Forælder forælder){
@@ -131,7 +140,7 @@ public class ListeManager {
         }
         //gemmer tekst documentet
         try {
-            FileWriter skrivForbindelseListe = new FileWriter("ForælderListe.txt");
+            FileWriter skrivForbindelseListe = new FileWriter("ForbindelseListe.txt");
             String gemTilFil = "";
             for (int i = 0; i < forbindelseListe.size(); i++){
                 if (i == 0){

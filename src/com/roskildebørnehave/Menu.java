@@ -25,6 +25,9 @@ public class Menu {
             if (valg == 3){
                 søgBarn();
             }
+            if (valg == 4){
+                tilFøjForælder();
+            }
         }
     }
 
@@ -59,6 +62,34 @@ public class Menu {
         System.out.println("2: se barn liste");
         System.out.println("3: søg barn");
         System.out.println("4: rediger barn");
+    }
+
+    public void tilFøjForælder(){
+        String navn;
+        String cpr;
+        String adresse;
+        int telefonnummer;
+        String barncpr;
+        System.out.println("skriv navn: ");
+        navn = sc.next();
+        navn += sc.nextLine();
+
+        System.out.println("skriv cpr: ");
+        cpr = sc.next();
+
+        System.out.println("skriv addresse: ");
+        adresse = sc.next();
+        adresse += sc.nextLine();
+
+        System.out.println("skriv telefonnummer: ");
+        telefonnummer = sc.nextInt();
+
+        System.out.println("skriv barn cpr: ");
+        barncpr = sc.next();
+
+        listeManager.tilføjForælder(navn, cpr, adresse, telefonnummer, barncpr);
+        listeManager.gemForælderListe();
+        listeManager.gemForbindelseListe();
     }
 
 }
